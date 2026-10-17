@@ -1,1 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>مهدی احمدی | سایت شخصی</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:linear-gradient(145deg,#0b1220,#172b49,#080d17);color:#f4f7fb;line-height:1.9}
+.wrap{max-width:900px;margin:auto;padding:18px 14px 40px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:10px 4px 22px}
+.brand{font-weight:bold;font-size:19px}
+.brand span{color:#70e1c1}
+.pill{font-size:12px;border:1px solid #34445c;border-radius:20px;padding:4px 10px;color:#b7c6d9}
+.hero{background:#131e31;border:1px solid #2b3d56;border-radius:26px;padding:28px 18px;text-align:center}
+.avatar{width:140px;height:140px;border-radius:50%;padding:4px;margin:0 auto 12px;background:linear-gradient(135deg,#70e1c1,#7aa7ff)}
+.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;background:#202d42}
+h1{font-size:30px;margin:5px 0}
+.subtitle{color:#70e1c1;font-weight:bold;margin:0 0 12px}
+.intro{color:#b7c6d9;max-width:600px;margin:auto}
+.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{border:0;border-radius:12px;padding:11px 16px;font-size:14px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+.primary{background:#70e1c1;color:#082018}
+.secondary{background:#202e44;color:white;border:1px solid #354761}
+.notice{margin:15px auto 0;font-size:12px;color:#c5d3e5;background:#0b1422;border:1px solid #2b3d56;padding:10px;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.card{background:#131e31;border:1px solid #2b3d56;border-radius:20px;padding:18px}
+.card h2{font-size:18px;margin:0 0 8px}
+.card p{color:#b7c6d9;font-size:14px;margin:0}
+.tags,.socials{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tag,.socials a{font-size:12px;background:#202e44;border:1px solid #354761;color:#e5edf7;padding:6px 10px;border-radius:10px;text-decoration:none}
+footer{text-align:center;color:#8fa1b8;font-size:12px;padding-top:24px}
+#photoInput{display:none}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.hero{padding:24px 14px}h1{font-size:27px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<div class="brand">احمدی <span>| سایت شخصی</span></div>
+<div class="pill">نسخه موبایل</div>
+</nav>
+
+<main>
+<section class="hero">
+<div class="avatar">
+<img id="profileImage" src="profile.jpg" alt="عکس پروفایل مهدی احمدی">
+</div>
+<h1>مهدی احمدی</h1>
+<p class="subtitle">به سایت شخصی من خوش آمدید</p>
+<p class="intro">اینجا می‌توانید با من، علاقه‌ها، مهارت‌ها و راه‌های ارتباطی من آشنا شوید.</p>
+
+<div class="actions">
+<button class="btn primary" type="button" id="choosePhoto">📷 انتخاب عکس از گالری</button>
+<a class="btn secondary" href="#about">درباره من ↓</a>
+</div>
+
+<input id="photoInput" type="file" accept="image/*">
+<div class="notice" id="photoNotice">برای تغییر عکس، دکمه انتخاب عکس از گالری را بزن. برای نمایش عکس به همه بازدیدکنندگان، فایل عکس را با نام profile.jpg کنار index.html در مخزن قرار بده.</div>
+</section>
+
+<div class="grid">
+<section class="card" id="about">
+<h2>👋 درباره من</h2>
+<p>من مهدی احمدی هستم. این سایت برای معرفی شخصی، علاقه‌ها و راه‌های ارتباطی من ساخته شده است.</p>
+</section>
+
+<section class="card">
+<h2>✨ علاقه‌ها و مهارت‌ها</h2>
+<p>در حال یادگیری مهارت‌های تازه و ساختن مسیر پیشرفت خودم هستم.</p>
+<div class="tags">
+<span class="tag">فناوری</span>
+<span class="tag">یادگیری</span>
+<span class="tag">تعمیرات موتور</span>
+<span class="tag">طراحی سایت</span>
+</div>
+</section>
+
+<section class="card">
+<h2>🌐 شبکه‌های اجتماعی</h2>
+<p>لینک واقعی حساب‌هایت را بعداً جایگزین # کن.</p>
+<div class="socials">
+<a href="#">اینستاگرام</a>
+<a href="#">فیسبوک</a>
+<a href="#">یوتیوب</a>
+<a href="#">واتساپ</a>
+<a href="#">تلگرام</a>
+<a href="#">تیک‌تاک</a>
+</div>
+</section>
+
+<section class="card">
+<h2>✉️ راه ارتباطی</h2>
+<p>به‌زودی راه‌های ارتباطی خود را اینجا اضافه می‌کنم.</p>
+</section>
+</div>
+</main>
+
+<footer>© مهدی احمدی — سایت شخصی</footer>
+</div>
+
+<script>
+const choosePhoto=document.getElementById('choosePhoto');
+const photoInput=document.getElementById('photoInput');
+const profileImage=document.getElementById('profileImage');
+const photoNotice=document.getElementById('photoNotice');
+
+choosePhoto.addEventListener('click',function(){
+photoInput.click();
+});
+
+photoInput.addEventListener('change',function(){
+const file=photoInput.files[0];
+if(!file)return;
+if(!file.type.startsWith('image/')){
+photoNotice.textContent='لطفاً یک عکس انتخاب کن.';
+return;
+}
+const reader=new FileReader();
+reader.onload=function(){
+profileImage.src=reader.result;
+photoNotice.textContent='عکس انتخاب شد! این پیش‌نمایش فعلاً روی همین گوشی است. برای نمایش عمومی، عکس را با نام profile.jpg در مخزن GitHub بارگذاری کن.';
+};
+reader.readAsDataURL(file);
+});
+</script>
+</body>
+</html>
  
