@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07131d">
+<meta name="description" content="سایت شخصی مهدی احمدی؛ معرفی، علایق و شبکه‌های اجتماعی">
+<title>MEHDI | احمدی — سایت شخصی</title>
+<style>
+:root{--mint:#6ce5c6;--white:#f8fbff;--muted:#c4d0dc;--panel:#102333;--line:#ffffff25}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:#06111a;color:var(--white);font-family:Tahoma,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.page{width:100%;max-width:1100px;min-height:100vh;margin:auto;overflow:hidden;background:linear-gradient(180deg,#102f48 0%,#071b29 58%,#06131b 100%);position:relative}
+.hero{min-height:100svh;position:relative;isolation:isolate;overflow:hidden;background:#102e45 url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=90') center/cover no-repeat}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,22,35,.48) 0%,rgba(5,21,33,.62) 36%,#06131bf7 91%),linear-gradient(90deg,rgba(3,13,22,.18),rgba(3,13,22,.48))}
+.topbar{position:relative;z-index:3;display:flex;align-items:center;gap:12px;padding:22px clamp(18px,5vw,48px) 0}
+.menu{flex:0 0 52px;width:52px;height:52px;border:1px solid #ffffff40;border-radius:19px;background:#ffffff19;color:white;font-size:26px;cursor:pointer;backdrop-filter:blur(14px)}
+.search{height:52px;display:flex;align-items:center;gap:10px;flex:1;max-width:620px;margin-inline-start:auto;padding:0 17px;border:1px solid #ffffff80;border-radius:22px;background:rgba(255,255,255,.88);color:#617184;backdrop-filter:blur(15px)}
+.search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#14283a;font-size:16px}
+.search input::placeholder{color:#778392}
+.hero-inner{min-height:calc(100svh - 74px);display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;padding:34px 22px 100px;gap:24px}
+.portrait-wrap{order:0;width:100%;display:flex;justify-content:center;align-items:center}
+.portrait{display:block;width:clamp(205px,48vw,330px);height:clamp(245px,56vw,390px);object-fit:cover;object-position:center 23%;border:3px solid #ffffffb8;border-radius:46% 46% 30px 30px;box-shadow:0 20px 65px #0007;background:#142a3b}
+.intro{order:1;width:100%;max-width:720px}
+.brand{margin:0 0 5px;font-size:clamp(32px,7vw,58px);font-weight:900;line-height:1.4;letter-spacing:.2px;direction:ltr}
+.brand span{color:var(--mint);direction:rtl;display:inline-block}
+.tagline{margin:0 0 14px;font-size:clamp(18px,3.5vw,25px);font-weight:bold}
+.description{max-width:600px;margin:0 auto;color:#e4edf5;font-size:clamp(14px,2.6vw,18px);line-height:2}
+.socials{display:flex;justify-content:center;align-items:flex-start;flex-wrap:wrap;gap:clamp(10px,2.8vw,23px);margin-top:24px}
+.social{min-width:54px;display:flex;align-items:center;flex-direction:column;gap:7px;font-size:12px;color:#f1f6fb}
+.social-icon{display:grid;place-items:center;width:clamp(48px,8vw,64px);height:clamp(48px,8vw,64px);border-radius:50%;font-size:26px;font-weight:bold;box-shadow:0 9px 25px #0004;border:1px solid #ffffff20;transition:transform .2s}
+.social:active .social-icon{transform:scale(.94)}
+.ig{background:linear-gradient(135deg,#7048ff,#f32e87,#ffb52c)}
+.fb{background:#1877f2}
+.tt{background:#10131b}
+.yt{background:#ff1738}
+.tg{background:#169bd7}
+.wa{background:#20c66a}
+.sections{padding:26px clamp(16px,4vw,36px) 10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{display:flex;align-items:center;gap:12px;min-height:106px;padding:15px;background:rgba(255,255,255,.075);border:1px solid var(--line);border-radius:22px;backdrop-filter:blur(14px);transition:background .2s,transform .2s}
+.card:active{transform:scale(.985)}
+.card-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:16px;color:white;font-size:24px}
+.blue{background:linear-gradient(135deg,#5576ff,#4a9ef7)}
+.pink{background:linear-gradient(135deg,#8055ff,#f02c9b)}
+.red{background:linear-gradient(135deg,#ff465c,#ee183b)}
+.green{background:linear-gradient(135deg,#25c99e,#13a98c)}
+.card-copy{min-width:0}
+.card h2{font-size:15px;margin:0 0 6px}
+.card p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+.arrow{margin-right:auto;color:#d4e1ee;font-size:24px}
+.section{padding:26px clamp(16px,4vw,36px) 8px}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}
+.section-head h2{font-size:20px;margin:0}
+.see-all{font-size:13px;color:var(--mint)}
+.posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.post{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#ffffff0b}
+.post img{display:block;width:100%;height:130px;object-fit:cover}
+.post h3{font-size:13px;margin:0;padding:11px 9px 14px}
+.about{margin:20px clamp(16px,4vw,36px);padding:22px;border:1px solid var(--line);border-radius:22px;background:#ffffff0a;color:#d7e2ec;line-height:2;scroll-margin-top:20px}
+.about h2{margin:0 0 8px;color:white;font-size:20px}
+.about p{margin:0;font-size:14px}
+.bottom-nav{position:sticky;bottom:0;z-index:5;display:flex;justify-content:space-around;gap:5px;background:rgba(8,24,36,.91);backdrop-filter:blur(20px);border-top:1px solid #ffffff20;padding:11px 6px max(12px,env(safe-area-inset-bottom));box-shadow:0 -6px 24px #0002}
+.bottom-nav a{display:flex;align-items:center;flex-direction:column;gap:5px;color:#aab8c6;font-size:11px;min-width:55px}
+.bottom-nav b{font-size:23px;font-weight:400;line-height:1.1}
+.bottom-nav .active{color:var(--mint)}
+footer{text-align:center;color:#9aaaba;padding:16px 12px 26px;font-size:12px}
+@media(min-width:800px){
+.hero-inner{min-height:calc(100svh - 74px);display:grid;grid-template-columns:1fr 1fr;gap:36px;padding:45px 6% 95px;text-align:right}
+.portrait-wrap{grid-column:2;grid-row:1}
+.intro{grid-column:1;grid-row:1;text-align:right}
+.description{margin:0}
+.socials{justify-content:flex-start}
+.portrait{width:min(100%,350px);height:430px}
+.sections{grid-template-columns:repeat(4,minmax(0,1fr))}
+.page{box-shadow:0 20px 80px #0004}
+}
+@media(max-width:390px){
+.topbar{padding-inline:12px;gap:8px}
+.menu{flex-basis:45px;width:45px;height:45px}
+.search{height:45px;padding-inline:12px}
+.hero-inner{padding-inline:15px;gap:20px}
+.portrait{width:190px;height:230px}
+.socials{gap:9px}
+.social{min-width:42px;font-size:10px}
+.social-icon{width:44px;height:44px;font-size:21px}
+.sections{padding-inline:12px;gap:8px}
+.card{padding:11px 9px;gap:8px;min-height:124px;align-items:flex-start;flex-direction:column}
+.card-icon{width:42px;height:42px;flex-basis:42px}
+.arrow{position:absolute;left:20px;margin-top:3px}
+.card h2{font-size:13px}
+.card p{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+*,*:before,*:after{transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="page" id="home">
+<section class="hero" aria-label="معرفی مهدی احمدی">
+<header class="topbar">
+<button class="menu" type="button" aria-label="رفتن به بخش‌ها" onclick="document.getElementById('sections').scrollIntoView({behavior:'smooth'})">☰</button>
+<label class="search"><span aria-hidden="true">⌕</span><input id="siteSearch" type="search" placeholder="جستجو در سایت..." aria-label="جستجو در سایت"></label>
+</header>
+<div class="hero-inner">
+<div class="portrait-wrap"><img class="portrait" src="profile.jpg" alt="عکس پروفایل مهدی احمدی" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=85'"></div>
+<div class="intro">
+<h1 class="brand">MEHDI <span>| احمدی</span></h1>
+<p class="tagline">سایت شخصی برند احمدی</p>
+<p class="description">به دنیای من خوش آمدید! اینجا درباره من، علاقه‌ها، مهارت‌ها و مسیر آینده‌ام بیشتر بخوانید.</p>
+<div class="socials" aria-label="شبکه‌های اجتماعی">
+<a class="social" href="https://www.instagram.com/mahdi2244.ahmdi32?mdxt=Y3JuczRvbmM2OWY1" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><span class="social-icon ig">◎</span><span>اینستاگرام</span></a>
+<a class="social" href="https://www.facebook.com/share/1FHGrqVyuJ/" target="_blank" rel="noopener noreferrer" aria-label="فیسبوک"><span class="social-icon fb">f</span><span>فیسبوک</span></a>
+<a class="social" href="https://www.tiktok.com/@mahdi.ahmdi928" target="_blank" rel="noopener noreferrer" aria-label="تیک‌تاک"><span class="social-icon tt">♪</span><span>تیک‌تاک</span></a>
+<a class="social" href="https://www.youtube.com/@Ahmdi.m" target="_blank" rel="noopener noreferrer" aria-label="یوتیوب"><span class="social-icon yt">▶</span><span>یوتیوب</span></a>
+<a class="social" href="https://t.me/Meahdi535" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><span class="social-icon tg">➤</span><span>تلگرام</span></a>
+<a class="social" href="https://wa.me/989905723613" target="_blank" rel="noopener noreferrer" aria-label="واتساپ"><span class="social-icon wa">◉</span><span>واتساپ</span></a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sections" id="sections" aria-label="بخش‌های سایت">
+<a class="card searchable" href="#about"><span class="card-icon blue">♟</span><span class="card-copy"><h2>درباره من</h2><p>آشنایی بیشتر با من</p></span><span class="arrow">‹</span></a>
+<a class="card searchable" href="#photos"><span class="card-icon pink">▣</span><span class="card-copy"><h2>عکس‌ها</h2><p>لحظه‌های زندگی من</p></span><span class="arrow">‹</span></a>
+<a class="card searchable" href="#interests"><span class="card-icon red">♥</span><span class="card-copy"><h2>علایق و سرگرمی‌ها</h2><p>چیزهایی که دوست دارم</p></span><span class="arrow">‹</span></a>
+<a class="card searchable" href="#contact"><span class="card-icon green">✉</span><span class="card-copy"><h2>تماس با من</h2><p>راه ارتباط با من</p></span><span class="arrow">‹</span></a>
+</section>
+
+<section class="section" id="photos">
+<div class="section-head"><h2>آخرین مطالب و عکس‌ها</h2><a class="see-all" href="#photos">مشاهده همه ‹</a></div>
+<div class="posts">
+<a class="post searchable" href="#interests"><img loading="lazy" src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=700&q=80" alt="فناوری و گوشی"><h3>تکنولوژی و گوشی</h3></a>
+<a class="post searchable" href="#interests"><img loading="lazy" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80" alt="کوهستان و ماجراجویی"><h3>سفر و ماجراجویی</h3></a>
+<a class="post searchable" href="#interests"><img loading="lazy" src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80" alt="موتور و مکانیکی"><h3>موتور و مکانیکی</h3></a>
+</div>
+</section>
+
+<section class="about searchable" id="about"><h2>👋 درباره من</h2><p>من مهدی احمدی هستم. به سایت شخصی من خوش آمدید. در اینجا می‌توانید با معرفی من، علایق، مهارت‌ها و چیزهایی که دوست دارم بیشتر آشنا شوید.</p></section>
+<section class="about searchable" id="interests"><h2>💙 علایق و سرگرمی‌ها</h2><p>فناوری و گوشی، برنامه‌نویسی، سفر و یادگیری مکانیکی موتور از علاقه‌های من هستند.</p></section>
+<section class="about searchable" id="contact"><h2>✉ تماس با من</h2><p>برای ارتباط، یکی از شبکه‌های اجتماعی بالا را انتخاب کنید.</p></section>
+
+<nav class="bottom-nav" aria-label="منوی پایین">
+<a class="active" href="#home"><b>⌂</b><span>خانه</span></a>
+<a href="#siteSearch" onclick="setTimeout(()=>document.getElementById('siteSearch').focus(),250)"><b>⌕</b><span>جستجو</span></a>
+<a href="#interests"><b>♡</b><span>علایق</span></a>
+<a href="#sections"><b>▦</b><span>بیشتر</span></a>
+</nav>
+<footer>© مهدی احمدی | سایت شخصی</footer>
+</div>
+<script>
+const search=document.getElementById('siteSearch');
+search.addEventListener('input',function(){
+const q=this.value.trim().toLocaleLowerCase('fa');
+document.querySelectorAll('.searchable').forEach(el=>{
+el.style.display=(!q||el.innerText.toLocaleLowerCase('fa').includes(q))?'':'none';
+});
+});
+</script>
+</body>
+</html>
