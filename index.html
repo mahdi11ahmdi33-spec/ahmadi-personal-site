@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080b12">
+<title>مهدی احمدی | سایت شخصی</title>
+
+<style>
+:root{
+  --white:#fff;
+  --muted:#d4dbe7;
+  --glass:rgba(8,12,20,.68);
+  --line:rgba(255,255,255,.18);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  color:var(--white);
+  background:#080b12;
+  line-height:1.8;
+}
+button,a{font:inherit}
+a{color:inherit}
+
+.page-bg{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  background-image:
+    linear-gradient(180deg,rgba(3,7,15,.28),
+    rgba(3,7,15,.55) 45%,#080b12 100%),
+    url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85');
+  background-size:cover;
+  background-position:center;
+}
+.page-bg:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,
+  rgba(4,8,15,.22),rgba(4,8,15,.08),rgba(4,8,15,.4));
+}
+
+.wrap{
+  width:min(100%,980px);
+  margin:auto;
+  padding:calc(14px + env(safe-area-inset-top))
+  15px calc(32px + env(safe-area-inset-bottom));
+}
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:22px;
+}
+.brand{font-weight:800;font-size:15px;text-shadow:0 2px 12px #000}
+.brand span{color:#d8e7ff}
+.nav-pill{
+  font-size:11px;
+  padding:5px 11px;
+  border:1px solid var(--line);
+  border-radius:99px;
+  background:rgba(0,0,0,.24);
+  backdrop-filter:blur(12px);
+}
+
+.hero{
+  text-align:center;
+  min-height:calc(78vh - 30px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:26px 14px 36px;
+}
+.avatar{
+  width:clamp(190px,57vw,285px);
+  height:clamp(190px,57vw,285px);
+  border-radius:50%;
+  padding:5px;
+  margin:0 auto 20px;
+  background:linear-gradient(140deg,#fff,#94a9c8 48%,#27354b);
+  box-shadow:0 18px 60px #0009,0 0 0 1px #ffffff55;
+  overflow:hidden;
+}
+.avatar img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  border-radius:50%;
+  background:#172233;
+}
+h1{
+  font-size:clamp(30px,8vw,48px);
+  line-height:1.3;
+  margin:0 0 4px;
+  text-shadow:0 3px 22px #000;
+}
+.subtitle{
+  margin:0 0 10px;
+  color:#edf4ff;
+  font-weight:700;
+  font-size:15px;
+  text-shadow:0 2px 10px #000;
+}
+.intro{
+  max-width:570px;
+  margin:0 auto;
+  color:#e0e7f2;
+  font-size:14px;
+  text-shadow:0 2px 8px #000;
+}
+.actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:10px 15px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  backdrop-filter:blur(15px);
+  transition:transform .18s,background .18s;
+}
+.btn:active,.social:active,.tag:active{transform:scale(.97)}
+.btn.primary{background:#f1f5fb;color:#111827;border-color:#fff}
+.btn.secondary{background:rgba(10,16,27,.58);color:#fff}
+#photoInput{display:none}
+.notice{
+  max-width:540px;
+  margin:13px auto 0;
+  font-size:11px;
+  color:#e2e8f0;
+  background:rgba(0,0,0,.45);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:8px 12px;
+  display:none;
+}
+.notice.show{display:block}
+
+.section{
+  margin:14px 0 0;
+  padding:19px;
+  background:var(--glass);
+  border:1px solid var(--line);
+  border-radius:23px;
+  box-shadow:0 16px 40px #0003;
+  backdrop-filter:blur(18px);
+}
+.section h2{font-size:18px;margin:0 0 8px}
+.section p{font-size:13px;color:var(--muted);margin:0}
+
+.tags,.socials{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:13px;
+}
+.tag,.social{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  cursor:pointer;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.09);
+  color:#fff;
+  padding:8px 12px;
+  border-radius:12px;
+  font-size:12px;
+  transition:transform .18s,background .18s;
+}
+.tag:hover,.social:hover{background:rgba(255,255,255,.18)}
+.detail{
+  display:none;
+  margin-top:13px;
+  padding:13px;
+  border-radius:14px;
+  background:rgba(0,0,0,.32);
+  border:1px solid var(--line);
+}
+.detail.open{display:block}
+.detail h3{font-size:15px;margin:0 0 5px;color:#fff}
+.detail p{font-size:13px}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:14px;
+}
+.grid .section{margin:0}
+.socials .social{flex:1 1 90px}
+
+footer{
+  text-align:center;
+  color:#c1cad8;
+  font-size:11px;
+  padding:24px 0 5px;
+}
+.bottom-nav{
+  position:sticky;
+  bottom:8px;
+  z-index:5;
+  display:flex;
+  justify-content:space-around;
+  gap:4px;
+  margin:18px auto 0;
+  padding:8px;
+  background:rgba(8,12,20,.82);
+  border:1px solid var(--line);
+  border-radius:18px;
+  backdrop-filter:blur(18px);
+  box-shadow:0 8px 28px #0005;
+}
+.bottom-nav a{
+  text-decoration:none;
+  text-align:center;
+  flex:1;
+  color:#e7edf6;
+  font-size:10px;
+  padding:4px 2px;
+  border-radius:10px;
+}
+.bottom-nav a span{
+  display:block;
+  font-size:17px;
+  line-height:1.5;
+}
+
+@media(max-width:600px){
+  .wrap{padding-left:12px;padding-right:12px}
+  .hero{min-height:calc(80svh - 20px);padding-top:20px}
+  .grid{grid-template-columns:1fr}
+  .section{padding:17px}
+  .bottom-nav{bottom:calc(7px + env(safe-area-inset-bottom))}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{transition:none!important}
+}
+</style>
+</head>
+
+<body>
+<div class="page-bg" aria-hidden="true"></div>
+
+<div class="wrap">
+  <nav>
+    <div class="brand">MEHDI <span>| فروشگاه خاطرات</span></div>
+    <div class="nav-pill">سایت شخصی احمدی</div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="avatar">
+        <img id="profileImage"
+          src="profile.jpg"
+          alt="عکس پروفایل مهدی احمدی"
+          onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%23172538%22/%3E%3Ccircle cx=%22150%22 cy=%22105%22 r=%2250%22 fill=%22%2394a8c2%22/%3E%3Cpath d=%22M55 285c5-75 42-112 95-112s90 37 95 112%22 fill=%22%2394a8c2%22/%3E%3C/svg%3E';">
+      </div>
+
+      <h1>مهدی احمدی</h1>
+      <p class="subtitle">به دنیای شخصی من خوش آمدید</p>
+      <p class="intro">
+        اینجا با من، علاقه‌ها، مهارت‌ها و مسیر یادگیری‌ام آشنا شوید.
+      </p>
+
+      <div class="actions">
+        <button class="btn primary" type="button" id="choosePhoto">
+          📷 انتخاب عکس پروفایل
+        </button>
+        <a class="btn secondary" href="#about">درباره من ↓</a>
+      </div>
+
+      <input id="photoInput" type="file" accept="image/*">
+      <div class="notice" id="photoNotice" aria-live="polite"></div>
+    </section>
+
+    <section class="section" id="about">
+      <h2>👋 درباره من</h2>
+      <p>
+        من مهدی احمدی هستم. به فناوری، یادگیری مهارت‌های تازه،
+        طراحی سایت و تعمیرات موتور علاقه دارم.
+        این سایت برای معرفی من و علاقه‌هایم ساخته شده است.
+      </p>
+    </section>
+
+    <div class="grid">
+      <section class="section" id="interests">
+        <h2>✨ علاقه‌ها و مهارت‌ها</h2>
+        <p>هر گزینه را بزن تا توضیحاتش باز شود.</p>
+
+        <div class="tags" aria-label="علاقه‌ها و مهارت‌ها">
+          <button class="tag" type="button"
+            data-title="💻 فناوری"
+            data-detail="به فناوری و ابزارهای دیجیتال علاقه دارم و دوست دارم با برنامه‌ها و امکانات تازه آشنا شوم.">
+            فناوری
+          </button>
+
+          <button class="tag" type="button"
+            data-title="📚 یادگیری"
+            data-detail="تلاش می‌کنم چیزهای تازه یاد بگیرم؛ از زبان و مهارت‌های روزمره تا ابزارهای دیجیتال.">
+            یادگیری
+          </button>
+
+          <button class="tag" type="button"
+            data-title="🛠️ تعمیرات موتور"
+            data-detail="به مکانیکی موتور علاقه دارم و می‌خواهم مهارت‌های سرویس، عیب‌یابی و تعمیر را بیشتر یاد بگیرم.">
+            تعمیرات موتور
+          </button>
+
+          <button class="tag" type="button"
+            data-title="🌐 طراحی سایت"
+            data-detail="در حال یادگیری HTML و CSS هستم و می‌خواهم وب‌سایت‌های زیبا و سازگار با گوشی بسازم.">
+            طراحی سایت
+          </button>
+
+          <button class="tag" type="button"
+            data-title="🎬 تولید محتوا"
+            data-detail="به ساخت ویدیو، ایده‌پردازی و تولید محتوای خلاقانه علاقه دارم.">
+            تولید محتوا
+          </button>
+        </div>
+
+        <div class="detail" id="interestDetail" aria-live="polite">
+          <h3 id="interestTitle"></h3>
+          <p id="interestText"></p>
+        </div>
+      </section>
+
+      <section class="section" id="social">
+        <h2>🌐 شبکه‌های اجتماعی</h2>
+        <p>
+          برای رفتن به هر شبکه روی گزینه‌اش بزن.
+          برای صفحه شخصی خودت، لینک هر حساب را در کد جایگزین کن.
+        </p>
+
+        <div class="socials">
+          <a class="social" href="https://www.instagram.com/"
+             target="_blank" rel="noopener noreferrer">📸 اینستاگرام</a>
+          <a class="social" href="https://www.facebook.com/"
+             target="_blank" rel="noopener noreferrer">📘 فیسبوک</a>
+          <a class="social" href="https://www.youtube.com/"
+             target="_blank" rel="noopener noreferrer">▶️ یوتیوب</a>
+          <a class="social" href="https://www.tiktok.com/"
+             target="_blank" rel="noopener noreferrer">🎵 تیک‌تاک</a>
+        </div>
+      </section>
+    </div>
+
+    <section class="section" id="contact">
+      <h2>✉️ راه ارتباطی</h2>
+      <p>
+        برای تماس مستقیم، پس از داشتن نشانی ایمیل
+        می‌توانی آن را در کد به لینک mailto اضافه کنی.
+      </p>
+      <div class="actions">
+        <a class="btn secondary" href="#social">🌐 شبکه‌های اجتماعی</a>
+        <a class="btn secondary" href="#home">⬆️ برگشت به بالا</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="bottom-nav" aria-label="منوی پایین">
+    <a href="#home"><span>⌂</span>خانه</a>
+    <a href="#about"><span>👤</span>درباره من</a>
+    <a href="#interests"><span>✦</span>علاقه‌ها</a>
+    <a href="#social"><span>◎</span>شبکه‌ها</a>
+  </div>
+
+  <footer>© مهدی احمدی — سایت شخصی</footer>
+</div>
+
+<script>
+const interestButtons = document.querySelectorAll('.tag[data-title]');
+const interestDetail = document.getElementById('interestDetail');
+const interestTitle = document.getElementById('interestTitle');
+const interestText = document.getElementById('interestText');
+
+interestButtons.forEach(button => {
+  button.setAttribute('aria-expanded', 'false');
+
+  button.addEventListener('click', () => {
+    const sameOpen =
+      interestDetail.classList.contains('open') &&
+      interestTitle.textContent === button.dataset.title;
+
+    interestButtons.forEach(item =>
+      item.setAttribute('aria-expanded', 'false')
+    );
+
+    if (sameOpen) {
+      interestDetail.classList.remove('open');
+      return;
+    }
+
+    interestTitle.textContent = button.dataset.title;
+    interestText.textContent = button.dataset.detail;
+    interestDetail.classList.add('open');
+    button.setAttribute('aria-expanded', 'true');
+  });
+});
+
+const choosePhoto = document.getElementById('choosePhoto');
+const photoInput = document.getElementById('photoInput');
+const profileImage = document.getElementById('profileImage');
+const photoNotice = document.getElementById('photoNotice');
+
+choosePhoto.addEventListener('click', () => photoInput.click());
+
+photoInput.addEventListener('change', () => {
+  const file = photoInput.files && photoInput.files[0];
+  if (!file) return;
+
+  if (!file.type.startsWith('image/')) {
+    photoNotice.textContent = 'لطفاً یک فایل عکس انتخاب کن.';
+    photoNotice.classList.add('show');
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    profileImage.src = reader.result;
+    photoNotice.textContent =
+      'عکس در همین گوشی پیش‌نمایش شد. برای نمایش عکس در سایت عمومی، ' +
+      'فایل را با نام profile.jpg کنار index.html در مخزن GitHub بارگذاری کن.';
+    photoNotice.classList.add('show');
+  };
+
+  reader.readAsDataURL(file);
+});
+</script>
+</body>
+</html>
