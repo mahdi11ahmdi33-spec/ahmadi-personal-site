@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>مهدی احمدی | سایت شخصی</title>
+<style>
+:root{--bg:#0b1220;--card:#131e31;--line:#26364f;--text:#f4f7fb;--muted:#a9b8cc;--accent:#70e1c1;--accent2:#7aa7ff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:radial-gradient(circle at top right,#172b49 0,#0b1220 48%,#080d17 100%);color:var(--text);line-height:1.9}
+.wrap{width:min(920px,100%);margin:auto;padding:22px 16px 48px}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 2px 24px}
+.brand{font-weight:800;letter-spacing:.2px}.brand span{color:var(--accent)}
+.pill{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--muted)}
+.hero{background:linear-gradient(145deg,rgba(24,39,62,.96),rgba(16,26,43,.94));border:1px solid var(--line);border-radius:28px;padding:28px 22px;text-align:center;box-shadow:0 20px 60px #0004}
+.avatar{width:132px;height:132px;border-radius:50%;padding:4px;margin:0 auto 12px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.avatar img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%;background:#202d42}
+h1{font-size:clamp(26px,6vw,38px);margin:8px 0 2px}
+.subtitle{color:var(--accent);font-weight:700;margin:0 0 12px}
+.intro{max-width:620px;margin:0 auto;color:var(--muted)}
+.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{border:0;border-radius:13px;padding:11px 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+.primary{background:var(--accent);color:#082018}.secondary{background:#202e44;color:var(--text);border:1px solid #354761}
+.notice{margin:16px auto 0;max-width:650px;font-size:12px;color:#c5d3e5;background:#0b1422;border:1px solid var(--line);padding:10px 12px;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.card{background:rgba(19,30,49,.88);border:1px solid var(--line);border-radius:20px;padding:20px}
+.card h2{font-size:18px;margin:0 0 8px}.card p{margin:0;color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tag{font-size:12px;background:#1c2b41;border:1px solid #30425d;color:#dce8f6;padding:7px 12px;border-radius:999px;cursor:pointer;font:inherit;font-size:12px}
+.tag:focus-visible,.tag:hover{border-color:var(--accent);outline:none}
+.interest-detail{display:none;margin-top:14px;padding:14px;background:#0b1422;border:1px solid var(--line);border-radius:14px;color:var(--muted);font-size:14px}
+.interest-detail.open{display:block}
+.interest-detail h3{margin:0 0 6px;color:var(--accent);font-size:16px}
+.interest-detail p{margin:0}
+.socials{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.socials a{color:var(--text);text-decoration:none;background:#1c2b41;border:1px solid #30425d;padding:8px 12px;border-radius:11px;font-size:13px}
+footer{text-align:center;color:#7f91a9;font-size:12px;padding-top:24px}
+#photoInput{display:none}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.hero{padding:24px 16px}.wrap{padding:14px 12px 34px}.card{padding:17px}nav{padding-bottom:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="brand">احمدی <span>| سایت شخصی</span></div>
+    <div class="pill">نسخه موبایل</div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="avatar">
+        <img id="profileImage" src="profile.jpg" alt="عکس پروفایل مهدی احمدی"
+        onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 120%22%3E%3Crect width=%22120%22 height=%22120%22 rx=%2260%22 fill=%22%23202d42%22/%3E%3Ccircle cx=%2260%22 cy=%2243%22 r=%2221%22 fill=%22%237b91ad%22/%3E%3Cpath d=%22M20 112c3-25 19-39 40-39s37 14 40 39%22 fill=%22%237b91ad%22/%3E%3C/svg%3E';">
+      </div>
+
+      <h1>مهدی احمدی</h1>
+      <p class="subtitle">به سایت شخصی من خوش آمدید</p>
+      <p class="intro">اینجا می‌توانید با من، علاقه‌ها، مهارت‌ها و راه‌های ارتباطی من آشنا شوید.</p>
+
+      <div class="actions">
+        <button class="btn primary" type="button" id="choosePhoto">📷 انتخاب عکس از گالری</button>
+        <a class="btn secondary" href="#about">درباره من ↓</a>
+      </div>
+
+      <input id="photoInput" type="file" accept="image/*">
+      <div class="notice" id="photoNotice">
+        برای عکس عمومی سایت، نام فایل عکس را <b>profile.jpg</b> بگذارید و آن را کنار فایل index.html در مخزن GitHub بارگذاری کنید. انتخاب از گالری در این صفحه فقط پیش‌نمایش همین گوشی را تغییر می‌دهد.
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="card" id="about">
+        <h2>👋 درباره من</h2>
+        <p>من مهدی احمدی هستم. این سایت برای معرفی شخصی، علاقه‌ها و راه‌های ارتباطی من ساخته شده است.</p>
+      </section>
+
+      <section class="card">
+        <h2>✨ علاقه‌ها و مهارت‌ها</h2>
+        <p>در حال یادگیری مهارت‌های تازه و ساختن مسیر پیشرفت خودم هستم.</p>
+
+        <div class="tags" aria-label="علاقه‌ها و مهارت‌ها">
+          <button class="tag" type="button" data-title="💻 فناوری" data-detail="به فناوری و ابزارهای دیجیتال علاقه دارم و دوست دارم با برنامه‌ها و امکانات تازه آشنا شوم.">فناوری</button>
+          <button class="tag" type="button" data-title="📚 یادگیری" data-detail="همیشه تلاش می‌کنم چیزهای تازه یاد بگیرم؛ از زبان و مهارت‌های روزمره تا کار با ابزارهای دیجیتال.">یادگیری</button>
+          <button class="tag" type="button" data-title="🛠️ تعمیرات موتور" data-detail="به مکانیکی موتور علاقه دارم و می‌خواهم مهارت‌های عیب‌یابی، سرویس و تعمیر موتور را بیشتر یاد بگیرم.">تعمیرات موتور</button>
+          <button class="tag" type="button" data-title="🌐 طراحی سایت" data-detail="در حال یادگیری ساخت سایت با HTML و CSS هستم و می‌خواهم سایت‌های زیبا و سازگار با گوشی بسازم.">طراحی سایت</button>
+        </div>
+
+        <div class="interest-detail" id="interestDetail" aria-live="polite">
+          <h3 id="interestTitle"></h3>
+          <p id="interestText"></p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>🌐 شبکه‌های اجتماعی</h2>
+        <p>لینک حساب‌های واقعی خود را بعداً در کد جایگزین کنید.</p>
+        <div class="socials">
+          <a href="#" onclick="alert('لینک اینستاگرام خود را در کد وارد کنید.');return false">اینستاگرام</a>
+          <a href="#" onclick="alert('لینک فیسبوک خود را در کد وارد کنید.');return false">فیسبوک</a>
+          <a href="#" onclick="alert('لینک یوتیوب خود را در کد وارد کنید.');return false">یوتیوب</a>
+          <a href="#" onclick="alert('لینک تیک‌تاک خود را در کد وارد کنید.');return false">تیک‌تاک</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>✉️ راه ارتباطی</h2>
+        <p>برای افزودن راه تماس، نشانی ایمیل خود را در فایل سایت وارد کنید.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>© مهدی احمدی — سایت شخصی</footer>
+</div>
+
+<script>
+const interestButtons = document.querySelectorAll('.tag[data-title]');
+const interestDetail = document.getElementById('interestDetail');
+const interestTitle = document.getElementById('interestTitle');
+const interestText = document.getElementById('interestText');
+
+interestButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const isSameOpen =
+      interestDetail.classList.contains('open') &&
+      interestTitle.textContent === button.dataset.title;
+
+    if (isSameOpen) {
+      interestDetail.classList.remove('open');
+      button.setAttribute('aria-expanded', 'false');
+      return;
+    }
+
+    interestButtons.forEach(item => item.setAttribute('aria-expanded', 'false'));
+    interestTitle.textContent = button.dataset.title;
+    interestText.textContent = button.dataset.detail;
+    interestDetail.classList.add('open');
+    button.setAttribute('aria-expanded', 'true');
+  });
+});
+
+const choosePhoto = document.getElementById('choosePhoto');
+const photoInput = document.getElementById('photoInput');
+const profileImage = document.getElementById('profileImage');
+const photoNotice = document.getElementById('photoNotice');
+
+choosePhoto.addEventListener('click', () => photoInput.click());
+
+photoInput.addEventListener('change', () => {
+  const file = photoInput.files && photoInput.files[0];
+  if (!file) return;
+
+  if (!file.type.startsWith('image/')) {
+    photoNotice.textContent = 'لطفاً یک فایل عکس انتخاب کنید.';
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    profileImage.src = reader.result;
+    photoNotice.textContent = 'عکس انتخاب شد و پیش‌نمایش آن روی همین گوشی نمایش داده می‌شود. برای نمایش عمومی، فایل عکس را با نام profile.jpg کنار index.html در مخزن GitHub بارگذاری کنید.';
+  };
+
+  reader.readAsDataURL(file);
+});
+</script>
+</body>
+</html>
