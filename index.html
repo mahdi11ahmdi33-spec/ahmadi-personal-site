@@ -2,753 +2,164 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#10243b">
-<title>مهدی احمدی | سایت شخصی</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173f65">
+<title>MEHDI | احمدی — سایت شخصی</title>
 <style>
-:root {
-  --ink: #101827;
-  --mint: #68dfc5;
-  --line: #e4ebf4;
+:root{--ink:#111a2c;--blue:#5268ff;--mint:#69e1c5;--paper:#f6f9ff;--line:#e6edf8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:15px}
+body{margin:0;background:#e9eff8;color:var(--ink);font-family:Tahoma,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.page{max-width:1100px;min-height:100vh;margin:auto;background:var(--paper);overflow:hidden}
+.hero{position:relative;isolation:isolate;min-height:680px;color:white;overflow:hidden;background:#173b59 url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=90') center/cover}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#061321df,#071c2b9c 48%,#06132125),linear-gradient(0deg,#07131bf2,transparent 70%)}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:3;display:flex;gap:10px;align-items:center;padding:20px 5%}
+.search{display:flex;align-items:center;gap:10px;flex:1;padding:12px 16px;border-radius:18px;background:#ffffffdf;color:#52647c}
+.search input{width:100%;min-width:0;border:0;outline:0;background:transparent}
+.menu{width:46px;height:46px;border:1px solid #ffffff4a;border-radius:15px;background:#ffffff1a;color:white;font-size:25px}
+.hero-inner{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:25px;min-height:680px;padding:105px 5% 42px}
+.intro{max-width:600px;position:relative;z-index:1}
+.brand{font-size:clamp(34px,5vw,60px);font-weight:900;line-height:1.35;margin:0 0 8px}
+.brand span{color:var(--mint)}
+.tagline{font-size:clamp(19px,2.2vw,26px);font-weight:bold;margin:0 0 22px}
+.description{font-size:17px;line-height:2;color:#f0f5fc;margin:0}
+.portrait-wrap{display:flex;align-items:center;justify-content:center}
+.portrait{display:block;width:min(100%,360px);height:430px;object-fit:cover;object-position:center 24%;border:3px solid #ffffffa8;border-radius:46% 46% 30px 30px;box-shadow:0 25px 65px #0006;background:#16283c}
+.socials{display:flex;flex-wrap:wrap;gap:13px;margin-top:25px}
+.social{display:flex;align-items:center;flex-direction:column;gap:7px;min-width:53px;font-size:12px;color:white}
+.social-icon{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;font-size:24px;font-weight:bold}
+.ig{background:linear-gradient(135deg,#7048ff,#f32e87,#ffb52c)}
+.fb{background:#1877f2}.tt{background:#10131b}.yt{background:#ff1738}.tg{background:#169bd7}.wa{background:#20c66a}
+.cards{position:relative;z-index:2;margin:-27px 3% 0;padding:22px;background:#f8faffed;border:1px solid white;border-radius:30px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{display:flex;align-items:center;gap:14px;min-height:128px;padding:19px;background:white;border:1px solid #e9eef8;border-radius:23px;transition:transform .18s}
+.card:hover{transform:translateY(-3px)}
+.card-icon{display:grid;place-items:center;flex:0 0 56px;width:56px;height:56px;border-radius:17px;font-size:26px;color:white}
+.blue{background:linear-gradient(135deg,#5576ff,#4a9ef7)}
+.pink{background:linear-gradient(135deg,#8055ff,#f02c9b)}
+.red{background:linear-gradient(135deg,#ff465c,#ee183b)}
+.green{background:linear-gradient(135deg,#25c99e,#13a98c)}
+.card-copy{min-width:0}
+.card h2{font-size:17px;margin:0 0 7px}
+.card p{margin:0;color:#748195;font-size:13px;line-height:1.7}
+.arrow{margin-right:auto;color:#607089;font-size:25px}
+.section{padding:30px 5% 12px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:17px}
+.section-head h2{font-size:22px;margin:0}
+.see-all{font-size:14px;color:#52647a}
+.posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.post{overflow:hidden;background:white;border:1px solid var(--line);border-radius:20px}
+.post img{display:block;width:100%;height:150px;object-fit:cover;background:#e1e8f0}
+.post h3{font-size:14px;margin:0;padding:12px 10px 15px}
+.about{margin:26px 5%;padding:24px;border-radius:23px;background:white;border:1px solid var(--line);line-height:2;color:#566579;scroll-margin-top:18px}
+.about h2{margin:0 0 9px;color:var(--ink);font-size:21px}
+.about p{margin:0}
+.bottom-nav{position:sticky;bottom:0;z-index:5;display:flex;justify-content:space-around;background:#ffffffed;border-top:1px solid #e3eaf3;padding:12px 8px max(12px,env(safe-area-inset-bottom))}
+.bottom-nav a{display:flex;align-items:center;flex-direction:column;gap:5px;color:#68778a;font-size:12px;min-width:60px}
+.bottom-nav b{font-size:24px;font-weight:400}
+.bottom-nav .active{color:var(--blue)}
+footer{text-align:center;color:#7b8797;padding:18px 12px 26px;font-size:12px}
+@media(max-width:650px){
+.page{width:100%}
+.hero{min-height:760px;background-position:center}
+.hero:before{background:linear-gradient(180deg,#071b2e55,#07132152 35%,#07131bf5 82%)}
+.topbar{padding:14px 4%;gap:8px}
+.search{padding:11px 12px}
+.menu{width:43px;height:43px}
+.hero-inner{display:flex;flex-direction:column;align-items:stretch;gap:12px;min-height:760px;padding:82px 5% 30px}
+.portrait-wrap{order:0;justify-content:flex-end;width:100%;height:225px}
+.portrait{width:190px;height:225px;object-position:center 22%;border-radius:44% 44% 24px 24px}
+.intro{order:1;max-width:none}
+.brand{font-size:clamp(32px,8.5vw,42px);margin-bottom:4px}
+.tagline{font-size:18px;margin-bottom:13px}
+.description{font-size:14px;line-height:1.9}
+.socials{gap:7px;justify-content:space-between;margin-top:18px}
+.social{min-width:42px;font-size:10px;gap:6px}
+.social-icon{width:44px;height:44px;font-size:20px}
+.cards{margin:-19px 3% 0;padding:12px;gap:9px;border-radius:26px}
+.card{display:block;position:relative;min-height:145px;padding:13px 11px;border-radius:19px}
+.card-icon{width:47px;height:47px;flex-basis:47px;border-radius:14px;font-size:22px;margin-bottom:9px}
+.card h2{font-size:14px;line-height:1.6;margin-bottom:4px}
+.card p{font-size:12px}
+.arrow{position:absolute;left:9px;top:18px;font-size:21px}
+.section{padding:26px 4% 8px}
+.section-head h2{font-size:18px}
+.posts{gap:8px}
+.post{border-radius:15px}
+.post img{height:94px}
+.post h3{font-size:11px;line-height:1.7;padding:8px 5px 10px}
+.about{margin:20px 4%;padding:18px;font-size:14px}
+.about h2{font-size:18px}
+.bottom-nav{padding-top:10px}
+.bottom-nav b{font-size:22px}
 }
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: #eaf0f7;
-  color: var(--ink);
-  font-family: Tahoma, Arial, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button, input {
-  font: inherit;
-}
-
-.page {
-  max-width: 1100px;
-  margin: auto;
-  background: #f7f9fc;
-  min-height: 100vh;
-}
-
-.topbar {
-  position: absolute;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 20px 5%;
-  color: white;
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #ffffffdf;
-  color: #526176;
-  border-radius: 18px;
-  padding: 12px 16px;
-  flex: 1;
-  max-width: 560px;
-}
-
-.search input {
-  width: 100%;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  color: #26364a;
-}
-
-.menu {
-  font-size: 28px;
-  border: 0;
-  background: transparent;
-  color: white;
-  cursor: pointer;
-}
-
-.hero {
-  min-height: 630px;
-  position: relative;
-  overflow: hidden;
-  color: white;
-  border-radius: 0 0 34px 34px;
-  background:
-    linear-gradient(90deg, #07131bd9 0%, #0b182d8c 48%, #07131b25 100%),
-    url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85')
-    center/cover;
-}
-
-.hero:after {
-  content: "";
-  position: absolute;
-  inset: 45% 0 0;
-  background: linear-gradient(0deg, #071018f2, transparent);
-  pointer-events: none;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  align-items: center;
-  gap: 30px;
-  min-height: 630px;
-  padding: 105px 5% 45px;
-}
-
-.intro {
-  max-width: 570px;
-}
-
-.brand {
-  font-size: clamp(30px, 4.5vw, 58px);
-  font-weight: 900;
-  line-height: 1.35;
-  margin: 0 0 8px;
-}
-
-.brand span {
-  color: var(--mint);
-}
-
-.tagline {
-  font-size: clamp(18px, 2.1vw, 25px);
-  font-weight: bold;
-  margin: 0 0 26px;
-}
-
-.description {
-  font-size: 17px;
-  line-height: 2;
-  color: #eef4fb;
-  max-width: 470px;
-}
-
-.socials {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-top: 28px;
-}
-
-.social {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 14px;
-  min-width: 66px;
-}
-
-.social-icon {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 25px;
-  font-weight: bold;
-  box-shadow: 0 8px 24px #0003;
-  border: 1px solid #ffffff20;
-}
-
-.ig {
-  background: linear-gradient(135deg, #7048ff, #f32e87, #ffb52c);
-}
-
-.fb {
-  background: #1877f2;
-}
-
-.tt {
-  background: #10131b;
-}
-
-.yt {
-  background: #ff1738;
-}
-
-.portrait-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.portrait {
-  width: min(310px, 70vw);
-  aspect-ratio: 4/5;
-  border-radius: 48% 48% 28px 28px;
-  object-fit: cover;
-  border: 4px solid #ffffff80;
-  box-shadow: 0 22px 55px #0005;
-  background: linear-gradient(145deg, #76e0ca, #6995ff);
-}
-
-.cards {
-  position: relative;
-  z-index: 2;
-  margin: -28px 4% 0;
-  background: #f8faff;
-  border-radius: 30px;
-  padding: 24px;
-  box-shadow: 0 12px 35px #243b5615;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: white;
-  border: 1px solid #e9eef6;
-  border-radius: 23px;
-  padding: 22px 20px;
-  min-height: 126px;
-  box-shadow: 0 5px 16px #182b4010;
-  transition: transform .2s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-}
-
-.card-icon {
-  flex: 0 0 58px;
-  width: 58px;
-  height: 58px;
-  border-radius: 18px;
-  display: grid;
-  place-items: center;
-  font-size: 27px;
-  color: white;
-}
-
-.blue {
-  background: linear-gradient(135deg, #5576ff, #4a9ef7);
-}
-
-.pink {
-  background: linear-gradient(135deg, #8055ff, #f02c9b);
-}
-
-.red {
-  background: linear-gradient(135deg, #ff465c, #ee183b);
-}
-
-.green {
-  background: linear-gradient(135deg, #25c99e, #13a98c);
-}
-
-.card h2 {
-  font-size: 19px;
-  margin: 0 0 8px;
-}
-
-.card p {
-  margin: 0;
-  color: #748195;
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.arrow {
-  margin-right: auto;
-  color: #6b7a8d;
-  font-size: 24px;
-}
-
-.section {
-  padding: 36px 5% 12px;
-}
-
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-.section-head h2 {
-  font-size: 24px;
-  margin: 0;
-}
-
-.see-all {
-  color: #52647a;
-  font-size: 14px;
-}
-
-.posts {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.post {
-  overflow: hidden;
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  box-shadow: 0 5px 18px #1a30400d;
-}
-
-.post img {
-  display: block;
-  width: 100%;
-  height: 145px;
-  object-fit: cover;
-  background: #e1e8f0;
-}
-
-.post h3 {
-  font-size: 16px;
-  margin: 0;
-  padding: 14px 12px 17px;
-}
-
-.about {
-  margin: 30px 5%;
-  padding: 26px;
-  border-radius: 24px;
-  background: white;
-  border: 1px solid var(--line);
-  line-height: 2;
-  color: #566579;
-}
-
-.about h2 {
-  margin-top: 0;
-  color: var(--ink);
-}
-
-.bottom-nav {
-  position: sticky;
-  bottom: 0;
-  z-index: 5;
-  display: flex;
-  justify-content: space-around;
-  gap: 8px;
-  background: #ffffffed;
-  backdrop-filter: blur(15px);
-  border-top: 1px solid #e3eaf3;
-  padding: 12px 8px max(12px, env(safe-area-inset-bottom));
-  box-shadow: 0 -5px 20px #2337500a;
-}
-
-.bottom-nav a {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 5px;
-  color: #68778a;
-  font-size: 12px;
-  min-width: 60px;
-}
-
-.bottom-nav b {
-  font-size: 23px;
-  font-weight: 400;
-  line-height: 1.1;
-}
-
-.bottom-nav a:first-child {
-  color: #5267ef;
-}
-
-footer {
-  text-align: center;
-  color: #7b8797;
-  padding: 20px 12px 28px;
-  font-size: 12px;
-}
-
-@media (max-width: 650px) {
-  .hero {
-    min-height: 720px;
-    border-radius: 0 0 30px 30px;
-    background-position: center;
-  }
-
-  .topbar {
-    padding: 18px 4%;
-    gap: 8px;
-  }
-
-  .search {
-    padding: 11px 13px;
-  }
-
-  .menu {
-    font-size: 25px;
-  }
-
-  .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    min-height: 720px;
-    padding: 100px 6% 35px;
-  }
-
-  .intro {
-    order: 2;
-  }
-
-  .portrait-wrap {
-    order: 1;
-    justify-content: flex-start;
-  }
-
-  .portrait {
-    width: 150px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    object-position: center 25%;
-  }
-
-  .brand {
-    font-size: 34px;
-  }
-
-  .tagline {
-    font-size: 18px;
-    margin-bottom: 14px;
-  }
-
-  .description {
-    font-size: 15px;
-    line-height: 1.9;
-    margin: 8px 0;
-  }
-
-  .socials {
-    gap: 11px;
-    margin-top: 20px;
-  }
-
-  .social {
-    min-width: 54px;
-    font-size: 12px;
-  }
-
-  .social-icon {
-    width: 49px;
-    height: 49px;
-    font-size: 22px;
-  }
-
-  .cards {
-    margin: -20px 3% 0;
-    padding: 13px;
-    gap: 10px;
-    border-radius: 25px;
-  }
-
-  .card {
-    display: block;
-    position: relative;
-    padding: 15px 12px;
-    min-height: 145px;
-    border-radius: 19px;
-  }
-
-  .card-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 15px;
-    font-size: 23px;
-    margin-bottom: 11px;
-  }
-
-  .card h2 {
-    font-size: 15px;
-    margin-bottom: 5px;
-  }
-
-  .card p {
-    font-size: 12px;
-  }
-
-  .arrow {
-    position: absolute;
-    left: 10px;
-    top: 25px;
-    font-size: 20px;
-  }
-
-  .section {
-    padding: 30px 4% 8px;
-  }
-
-  .section-head h2 {
-    font-size: 20px;
-  }
-
-  .posts {
-    gap: 9px;
-  }
-
-  .post img {
-    height: 90px;
-  }
-
-  .post h3 {
-    font-size: 12px;
-    padding: 10px 7px 12px;
-  }
-
-  .about {
-    margin: 24px 4%;
-    padding: 20px;
-    font-size: 14px;
-  }
-
-  .bottom-nav {
-    padding-top: 11px;
-  }
-
-  .bottom-nav b {
-    font-size: 21px;
-  }
-}
-
-@media (min-width: 900px) {
-  .page {
-    margin: 24px auto;
-    border-radius: 30px;
-    overflow: hidden;
-  }
-
-  .hero {
-    border-radius: 30px;
-  }
-
-  .hero-inner {
-    padding-top: 90px;
-  }
-}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
-
 <body>
 <div class="page" id="home">
-
-  <section class="hero">
-    <header class="topbar">
-      <label class="search">
-        <span aria-hidden="true">⌕</span>
-        <input id="siteSearch" type="search"
-               placeholder="جستجو در سایت..."
-               aria-label="جستجو در سایت">
-      </label>
-
-      <button class="menu"
-              aria-label="رفتن به بخش‌ها"
-              onclick="document.getElementById('sections').scrollIntoView({behavior:'smooth'})">
-        ☰
-      </button>
-    </header>
-
-    <div class="hero-inner">
-      <div class="intro">
-        <h1 class="brand">MEHDI <span>| احمدی</span></h1>
-        <p class="tagline">سایت شخصی برند احمدی</p>
-
-        <p class="description">
-          به دنیای من خوش آمدید! اینجا درباره من، علاقه‌ها،
-          مهارت‌ها و مسیر آینده‌ام بیشتر بخوانید.
-        </p>
-
-        <div class="socials" aria-label="شبکه‌های اجتماعی">
-          <a class="social" href="#" aria-label="اینستاگرام">
-            <span class="social-icon ig">◎</span>
-            <span>اینستاگرام</span>
-          </a>
-
-          <a class="social" href="#" aria-label="فیسبوک">
-            <span class="social-icon fb">f</span>
-            <span>فیسبوک</span>
-          </a>
-
-          <a class="social" href="#" aria-label="تیک‌تاک">
-            <span class="social-icon tt">♪</span>
-            <span>تیک‌تاک</span>
-          </a>
-
-          <a class="social" href="#" aria-label="یوتیوب">
-            <span class="social-icon yt">▶</span>
-            <span>یوتیوب</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="portrait-wrap">
-        <img class="portrait"
-             src="profile.jpg"
-             alt="عکس پروفایل مهدی احمدی"
-             onerror="this.style.display='none';this.parentElement.style.minHeight='80px'">
-      </div>
-    </div>
-  </section>
-
-  <section class="cards" id="sections">
-
-    <a class="card" href="#about">
-      <span class="card-icon blue">♟</span>
-      <span>
-        <h2>درباره من</h2>
-        <p>آشنایی بیشتر با من</p>
-      </span>
-      <span class="arrow">‹</span>
-    </a>
-
-    <a class="card" href="#photos">
-      <span class="card-icon pink">▣</span>
-      <span>
-        <h2>عکس‌ها</h2>
-        <p>لحظه‌های زندگی من</p>
-      </span>
-      <span class="arrow">‹</span>
-    </a>
-
-    <a class="card" href="#interests">
-      <span class="card-icon red">♥</span>
-      <span>
-        <h2>علایق و سرگرمی‌ها</h2>
-        <p>چیزهایی که دوست دارم</p>
-      </span>
-      <span class="arrow">‹</span>
-    </a>
-
-    <a class="card" href="#contact">
-      <span class="card-icon green">✉</span>
-      <span>
-        <h2>تماس با من</h2>
-        <p>راه ارتباط با من</p>
-      </span>
-      <span class="arrow">‹</span>
-    </a>
-
-  </section>
-
-  <section class="section" id="photos">
-    <div class="section-head">
-      <h2>آخرین مطالب</h2>
-      <a class="see-all" href="#interests">مشاهده همه ‹</a>
-    </div>
-
-    <div class="posts">
-
-      <a class="post" href="#interests">
-        <img loading="lazy"
-             src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=700&q=80"
-             alt="فناوری و گوشی">
-        <h3>تکنولوژی و گوشی</h3>
-      </a>
-
-      <a class="post" href="#interests">
-        <img loading="lazy"
-             src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80"
-             alt="سفر و ماجراجویی">
-        <h3>سفر و ماجراجویی</h3>
-      </a>
-
-      <a class="post" href="#interests">
-        <img loading="lazy"
-             src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80"
-             alt="موتور و مکانیکی">
-        <h3>موتور و مکانیکی</h3>
-      </a>
-
-    </div>
-  </section>
-
-  <section class="about" id="about">
-    <h2>👋 درباره من</h2>
-    <p>
-      من مهدی احمدی هستم. به سایت شخصی من خوش آمدید.
-      در اینجا می‌توانید با معرفی من، علایق، مهارت‌ها
-      و چیزهایی که دوست دارم بیشتر آشنا شوید.
-    </p>
-  </section>
-
-  <section class="about" id="interests">
-    <h2>💙 علایق و سرگرمی‌ها</h2>
-    <p>
-      فناوری و گوشی، سفر و ماجراجویی، و یادگیری مکانیکی
-      موتور از علاقه‌های من هستند.
-    </p>
-  </section>
-
-  <section class="about" id="contact">
-    <h2>✉ تماس با من</h2>
-    <p>
-      برای افزودن راه‌های ارتباطی واقعی، لینک شبکه‌های
-      اجتماعی خود را در کد جایگزین کنید.
-    </p>
-  </section>
-
-  <nav class="bottom-nav" aria-label="منوی پایین">
-    <a href="#home">
-      <b>⌂</b>
-      <span>خانه</span>
-    </a>
-
-    <a href="#siteSearch"
-       onclick="document.getElementById('siteSearch').focus()">
-      <b>⌕</b>
-      <span>جستجو</span>
-    </a>
-
-    <a href="#interests">
-      <b>♡</b>
-      <span>علایق</span>
-    </a>
-
-    <a href="#sections">
-      <b>▦</b>
-      <span>بیشتر</span>
-    </a>
-  </nav>
-
-  <footer>© مهدی احمدی | سایت شخصی</footer>
-
+<section class="hero" aria-label="معرفی مهدی احمدی">
+<header class="topbar">
+<label class="search"><span>⌕</span><input id="siteSearch" type="search" placeholder="جستجو در سایت..." aria-label="جستجو در سایت"></label>
+<button class="menu" aria-label="رفتن به بخش‌ها" onclick="document.getElementById('sections').scrollIntoView({behavior:'smooth'})">☰</button>
+</header>
+<div class="hero-inner">
+<div class="intro">
+<h1 class="brand">MEHDI <span>| احمدی</span></h1>
+<p class="tagline">سایت شخصی برند احمدی</p>
+<p class="description">به دنیای من خوش آمدید! اینجا درباره من، علاقه‌ها، مهارت‌ها و مسیر آینده‌ام بیشتر بخوانید.</p>
+<div class="socials">
+<a class="social" href="#contact"><span class="social-icon ig">◎</span><span>اینستاگرام</span></a>
+<a class="social" href="#contact"><span class="social-icon fb">f</span><span>فیسبوک</span></a>
+<a class="social" href="#contact"><span class="social-icon tt">♪</span><span>تیک‌تاک</span></a>
+<a class="social" href="#contact"><span class="social-icon yt">▶</span><span>یوتیوب</span></a>
+<a class="social" href="#contact"><span class="social-icon tg">➤</span><span>تلگرام</span></a>
+<a class="social" href="#contact"><span class="social-icon wa">◉</span><span>واتساپ</span></a>
 </div>
-
+</div>
+<div class="portrait-wrap">
+<img class="portrait" src="profile.jpg" alt="عکس پروفایل مهدی احمدی" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=85'">
+</div>
+</div>
+</section>
+<section class="cards" id="sections">
+<a class="card" href="#about"><span class="card-icon blue">♟</span><span class="card-copy"><h2>درباره من</h2><p>آشنایی بیشتر با من</p></span><span class="arrow">‹</span></a>
+<a class="card" href="#photos"><span class="card-icon pink">▣</span><span class="card-copy"><h2>عکس‌ها</h2><p>لحظه‌های زندگی من</p></span><span class="arrow">‹</span></a>
+<a class="card" href="#interests"><span class="card-icon red">♥</span><span class="card-copy"><h2>علایق و سرگرمی‌ها</h2><p>چیزهایی که دوست دارم</p></span><span class="arrow">‹</span></a>
+<a class="card" href="#contact"><span class="card-icon green">✉</span><span class="card-copy"><h2>تماس با من</h2><p>راه ارتباط با من</p></span><span class="arrow">‹</span></a>
+</section>
+<section class="section" id="photos">
+<div class="section-head"><h2>آخرین مطالب و عکس‌ها</h2><a class="see-all" href="#photos">مشاهده همه ‹</a></div>
+<div class="posts">
+<a class="post" href="#interests"><img loading="lazy" src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=700&q=80" alt="فناوری و گوشی"><h3>تکنولوژی و گوشی</h3></a>
+<a class="post" href="#interests"><img loading="lazy" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80" alt="سفر و ماجراجویی"><h3>سفر و ماجراجویی</h3></a>
+<a class="post" href="#interests"><img loading="lazy" src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80" alt="موتور و مکانیکی"><h3>موتور و مکانیکی</h3></a>
+</div>
+</section>
+<section class="about" id="about"><h2>👋 درباره من</h2><p>من مهدی احمدی هستم. به سایت شخصی من خوش آمدید. در اینجا می‌توانید با معرفی من، علایق، مهارت‌ها و چیزهایی که دوست دارم بیشتر آشنا شوید.</p></section>
+<section class="about" id="interests"><h2>💙 علایق و سرگرمی‌ها</h2><p>فناوری و گوشی، سفر و ماجراجویی، و یادگیری مکانیکی موتور از علاقه‌های من هستند.</p></section>
+<section class="about" id="contact"><h2>✉ تماس با من</h2><p>لینک‌های واقعی شبکه‌های اجتماعی را بعداً می‌توانیم به این بخش اضافه کنیم.</p></section>
+<nav class="bottom-nav">
+<a class="active" href="#home"><b>⌂</b><span>خانه</span></a>
+<a href="#siteSearch" onclick="setTimeout(()=>document.getElementById('siteSearch').focus(),250)"><b>⌕</b><span>جستجو</span></a>
+<a href="#interests"><b>♡</b><span>علایق</span></a>
+<a href="#sections"><b>▦</b><span>بیشتر</span></a>
+</nav>
+<footer>© مهدی احمدی | سایت شخصی</footer>
+</div>
 <script>
-document.getElementById('siteSearch').addEventListener('input', function () {
-  const q = this.value.trim().toLocaleLowerCase('fa');
-
-  document.querySelectorAll('.card, .post, .about').forEach(function (el) {
-    el.style.display =
-      !q || el.innerText.toLocaleLowerCase('fa').includes(q)
-        ? ''
-        : 'none';
-  });
+const search=document.getElementById('siteSearch');
+search.addEventListener('input',function(){
+const q=this.value.trim().toLocaleLowerCase('fa');
+document.querySelectorAll('.card,.post,.about').forEach(el=>{
+el.style.display=(!q||el.innerText.toLocaleLowerCase('fa').includes(q))?'':'none';
 });
+});
+document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',function(){
+const target=document.querySelector(this.getAttribute('href'));
+if(target&&target.id!=='siteSearch')target.scrollIntoView({behavior:'smooth',block:'start'});
+}));
 </script>
-
 </body>
 </html>
