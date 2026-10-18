@@ -1,1 +1,347 @@
 
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080b12">
+<title>مهدی احمدی | سایت شخصی</title>
+
+<style>
+:root {
+  --bg: #080b12;
+  --card: #141a27;
+  --text: #f5f7ff;
+  --muted: #a6b0c4;
+  --accent: #8b7cff;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #22284a 0%, transparent 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+button, a {
+  font: inherit;
+}
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  background: #080b12;
+  animation: introOut 0.7s ease 3.3s forwards;
+}
+
+.signature {
+  font-family: "Brush Script MT", cursive;
+  font-size: clamp(38px, 10vw, 64px);
+  font-weight: bold;
+  color: white;
+  direction: rtl;
+  animation: signatureIn 1.5s ease both;
+  text-shadow: 0 0 25px #8b7cff88;
+}
+
+.intro-sub {
+  color: #aaa7ff;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+@keyframes signatureIn {
+  from { opacity: 0; transform: translateY(20px) scale(.85); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes introOut {
+  to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+header {
+  padding: 25px 20px 12px;
+  text-align: center;
+}
+
+.logo {
+  width: 74px;
+  height: 74px;
+  margin: 5px auto 14px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #8b7cff;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #282344, #121725);
+  font-size: 26px;
+  font-weight: bold;
+  box-shadow: 0 0 35px #8b7cff22;
+}
+
+h1 {
+  font-size: 25px;
+  margin: 8px 0;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+}
+
+main {
+  width: min(100% - 30px, 520px);
+  margin: 22px auto 110px;
+}
+
+.search {
+  width: 100%;
+  border: 1px solid #293247;
+  border-radius: 17px;
+  background: #111725;
+  color: white;
+  padding: 15px;
+  outline: none;
+  margin-bottom: 22px;
+}
+
+.search:focus {
+  border-color: var(--accent);
+}
+
+.section-title {
+  font-size: 17px;
+  margin: 22px 3px 13px;
+}
+
+.card {
+  background: linear-gradient(145deg, #171e2d, #101521);
+  border: 1px solid #252e42;
+  border-radius: 22px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+
+.card h2 {
+  font-size: 16px;
+  margin: 0 0 9px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+  margin: 0;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.social {
+  min-height: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid #293247;
+  border-radius: 19px;
+  background: #141a27;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  transition: transform .2s, border-color .2s, background .2s;
+}
+
+.social:active {
+  transform: scale(.96);
+}
+
+.social:hover {
+  border-color: var(--accent);
+  background: #20223b;
+}
+
+.social-icon {
+  font-size: 24px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 15px 100px;
+  color: #7f8ba3;
+  font-size: 12px;
+}
+
+.bottom-nav {
+  position: fixed;
+  z-index: 10;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+  padding: 12px 5px;
+  border: 1px solid #34374b;
+  border-radius: 24px;
+  background: #111521ee;
+  backdrop-filter: blur(18px);
+}
+
+.bottom-nav a {
+  color: #c5c8dc;
+  text-decoration: none;
+  font-size: 11px;
+  text-align: center;
+  padding: 3px;
+}
+
+.bottom-nav span {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 600px) {
+  main {
+    margin-top: 35px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+  <div class="signature">مهدی احمدی</div>
+  <div class="intro-sub">WELCOME TO MY WORLD</div>
+</div>
+
+<header id="home">
+  <div class="logo">MA</div>
+  <h1>مهدی احمدی</h1>
+  <div class="subtitle">
+    به سایت شخصی من خوش آمدید<br>
+    دنیای علاقه‌ها، یادگیری و فناوری
+  </div>
+</header>
+
+<main>
+  <input
+    class="search"
+    id="search"
+    type="search"
+    placeholder="🔎 جستجو در بخش‌های سایت..."
+    aria-label="جستجو"
+  >
+
+  <section class="card searchable" id="about">
+    <h2>👋 درباره من</h2>
+    <p>
+      سلام! من مهدی احمدی هستم.
+      به فناوری، یادگیری مهارت‌های جدید و دنیای دیجیتال علاقه دارم.
+      اینجا می‌توانید من و فعالیت‌هایم را بیشتر بشناسید.
+    </p>
+  </section>
+
+  <h2 class="section-title" id="interests">✨ علاقه‌مندی‌ها</h2>
+
+  <section class="card searchable">
+    <h2>💻 فناوری و تکنولوژی</h2>
+    <p>آشنایی با دنیای تکنولوژی، سایت‌سازی و ابزارهای دیجیتال.</p>
+  </section>
+
+  <section class="card searchable">
+    <h2>📚 یادگیری و پیشرفت</h2>
+    <p>یادگیری زبان‌ها، کسب مهارت‌های جدید و ساختن آینده‌ای بهتر.</p>
+  </section>
+
+  <h2 class="section-title" id="social">🌐 شبکه‌های اجتماعی من</h2>
+
+  <div class="social-grid" id="socialGrid">
+
+    <!-- لینک اینستاگرام خود را جایگزین کن -->
+    <a class="social" href="https://instagram.com/"
+       data-name="اینستاگرام" target="_blank"
+       rel="noopener noreferrer">
+      <span class="social-icon">📸</span>
+      <span>اینستاگرام</span>
+    </a>
+
+    <!-- لینک فیسبوک خود را جایگزین کن -->
+    <a class="social" href="https://facebook.com/"
+       data-name="فیسبوک" target="_blank"
+       rel="noopener noreferrer">
+      <span class="social-icon">📘</span>
+      <span>فیسبوک</span>
+    </a>
+
+    <!-- لینک تیک تاک خود را جایگزین کن -->
+    <a class="social" href="https://tiktok.com/"
+       data-name="تیک تاک" target="_blank"
+       rel="noopener noreferrer">
+      <span class="social-icon">🎵</span>
+      <span>تیک‌تاک</span>
+    </a>
+
+    <!-- لینک کانال یوتیوب خود را جایگزین کن -->
+    <a class="social" href="https://youtube.com/"
+       data-name="یوتیوب" target="_blank"
+       rel="noopener noreferrer">
+      <span class="social-icon">▶️</span>
+      <span>یوتیوب</span>
+    </a>
+
+  </div>
+
+  <footer id="contact">
+    ساخته شده با ❤️ توسط مهدی احمدی<br>
+    © 2026 | تمام حقوق محفوظ است
+  </footer>
+</main>
+
+<nav class="bottom-nav">
+  <a href="#home"><span>⌂</span>خانه</a>
+  <a href="#about"><span>👤</span>درباره من</a>
+  <a href="#interests"><span>✨</span>علاقه‌ها</a>
+  <a href="#social"><span>🌐</span>شبکه‌ها</a>
+</nav>
+
+<script>
+const search = document.getElementById("search");
+
+search.addEventListener("input", function () {
+  const query = this.value.trim().toLowerCase();
+
+  document.querySelectorAll(".searchable, .social").forEach(item => {
+    item.style.display =
+      item.textContent.toLowerCase().includes(query) ? "" : "none";
+  });
+
+  document.getElementById("socialGrid").style.display =
+    [...document.querySelectorAll(".social")]
+      .some(item => item.style.display !== "none") ? "grid" : "none";
+});
+</script>
+
+</body>
+</html>
+
