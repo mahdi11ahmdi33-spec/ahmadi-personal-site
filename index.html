@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#061426">
+<meta name="description" content="وب‌سایت شخصی مهدی احمدی">
+<title>مهدی احمدی | برند شخصی</title>
+<style>
+:root{--bg:#061426;--bg2:#020914;--panel:rgba(14,39,65,.82);--line:rgba(164,204,255,.18);--text:#f4f8ff;--muted:#a9bfd8;--cyan:#72dcff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:Tahoma,"Segoe UI",sans-serif;min-height:100vh}
+body.light{--bg:#eaf3ff;--bg2:#d8e8fb;--panel:rgba(255,255,255,.9);--line:rgba(30,75,130,.2);--text:#10233c;--muted:#526b89}
+button,input{font:inherit}
+button{cursor:pointer}
+.wallpaper{position:fixed;inset:0;z-index:-1;background:linear-gradient(#03101c88,#020914f2),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80') center/cover}
+.app{width:min(100%,650px);margin:auto;min-height:100vh;padding:0 16px 110px}
+.topbar{height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:1px;font-weight:bold;direction:ltr}
+.logo{width:40px;height:40px;border:1px solid #8fbaff88;border-radius:14px;display:grid;place-items:center;color:var(--cyan);font-size:20px;background:#a9d8ff12}
+.top-actions{display:flex;gap:8px}
+.glass-btn{border:1px solid var(--line);background:#b4d8ff12;color:var(--text);border-radius:14px;width:42px;height:42px;font-size:21px}
+.page{display:none;animation:appear .3s ease}
+.page.active{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.hero{text-align:center;padding:26px 8px 18px}
+.avatar-wrap{width:132px;height:132px;margin:0 auto 18px}
+.avatar{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid #8cc5ff;box-shadow:0 0 0 7px #5d9fff18,0 0 38px #357aff80;background:#102a45}
+.eyebrow{font-size:11px;letter-spacing:3px;color:var(--cyan);direction:ltr}
+.hero h1{font-size:clamp(27px,7vw,39px);margin:12px 0 8px;direction:ltr}
+.subtitle{font-size:14px;line-height:2;margin:0 auto;max-width:350px}
+.bio-small{color:var(--muted);font-size:12px;line-height:2;margin:8px auto 18px;max-width:340px}
+.primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #7caaff99;border-radius:999px;padding:12px 22px;color:white;text-decoration:none;background:linear-gradient(120deg,#234c8c,#536bca);cursor:pointer}
+.social-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0 20px}
+.social{min-width:0;text-decoration:none;color:var(--text);border:1px solid var(--line);background:linear-gradient(145deg,#142d49e8,#081a2ce8);border-radius:20px;padding:13px 3px;text-align:center}
+.social-icon{display:grid;place-items:center;margin:0 auto 9px;width:42px;height:42px;border-radius:50%;background:#233c67;font-size:21px;font-weight:bold}
+.social span:last-child{font-size:10px;display:block;white-space:nowrap}
+.glass{border:1px solid var(--line);background:linear-gradient(145deg,var(--panel),rgba(5,20,36,.8));backdrop-filter:blur(18px);border-radius:24px;padding:18px;margin:14px 0;box-shadow:0 14px 38px #0002}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 14px}
+.section-head h2,.page-title{font-size:21px;margin:0}
+.section-head span{font-size:11px;color:var(--cyan)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.stat strong{display:block;font-size:21px;direction:ltr}
+.stat span{font-size:11px;color:var(--muted);display:block;margin-top:6px}
+.tile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.tile{padding:16px 7px;border-radius:18px;border:1px solid var(--line);background:#b5d8ff0a;text-align:center;color:var(--text)}
+.tile b{font-size:24px;display:block;margin-bottom:10px}
+.tile span{font-size:11px;color:var(--muted)}
+.page-intro{color:var(--muted);line-height:2;font-size:13px;margin:10px 0 18px}
+.info-row{display:flex;gap:13px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.info-row:last-child{border:0}
+.info-ico{width:43px;height:43px;display:grid;place-items:center;border-radius:15px;background:#527dff22;font-size:20px;flex-shrink:0}
+.info-row strong{font-size:13px;display:block;margin-bottom:5px}
+.info-row small{font-size:11px;color:var(--muted)}
+.project-cover{height:120px;background:linear-gradient(135deg,#1d4a7b,#111d43);display:grid;place-items:center;font-size:42px;border-radius:18px}
+.project h3{font-size:15px}
+.project p{color:var(--muted);font-size:12px;line-height:2}
+.searchbox,.field{width:100%;padding:14px;border:1px solid var(--line);border-radius:15px;background:#081b30;color:white;outline:none;margin:8px 0 14px}
+.empty{color:var(--muted);font-size:12px;padding:15px;text-align:center}
+.bottom-nav{position:fixed;z-index:5;bottom:calc(10px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(calc(100% - 22px),620px);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 6px;border-radius:25px;border:1px solid #b3d6ff30;background:#07182bf2;box-shadow:0 12px 40px #0008;backdrop-filter:blur(22px)}
+.nav-item{border:0;background:transparent;color:#91a9c5;display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 2px;border-radius:17px;font-size:10px}
+.nav-icon{font-size:20px}
+.nav-item.active{background:linear-gradient(140deg,#3e6eff66,#3ca9ff33);color:white}
+.footer{text-align:center;color:var(--muted);font-size:10px;margin-top:28px;letter-spacing:2px;direction:ltr}
+.backdrop{position:fixed;inset:0;z-index:20;background:#020914dd;backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:18px}
+.backdrop.open{display:flex}
+.drawer,.modal{width:min(100%,430px);max-height:88vh;overflow:auto;border:1px solid #789bc455;border-radius:25px;padding:20px;background:#091b30;color:#f4f8ff;box-shadow:0 20px 70px #0009}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.drawer h2,.modal h2{font-size:19px;margin:0}
+.close{width:38px;height:38px;border:1px solid #789bc455;background:#ffffff10;color:white;border-radius:12px;font-size:21px}
+.setting-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid #789bc433;font-size:13px}
+.setting-row small{display:block;color:#a9bfd8;font-size:11px;margin-top:5px;line-height:1.8}
+.setting-action{border:1px solid #7caaff66;background:#17365b;color:white;border-radius:12px;padding:10px 12px;white-space:nowrap}
+.notice{border:1px solid #f5c36a66;background:#8b5b161f;border-radius:14px;padding:12px;color:#ffd99b;font-size:11px;line-height:1.9;margin:12px 0}
+.modal p{font-size:12px;color:#c0d3e9;line-height:2}
+.signature{font-family:"Brush Script MT","Segoe Script",cursive;font-style:italic;font-size:clamp(38px,10vw,58px);color:#36d9ff;text-shadow:0 0 25px #168dff99;direction:ltr;transform:rotate(-5deg);margin:8px 0}
+.splash{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:24px;background:radial-gradient(ellipse at 50% 35%,#123963aa,transparent 45%),linear-gradient(180deg,#031126f7,#020814 85%),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80') center/cover}
+.splash-top{position:absolute;top:25px;left:22px;right:22px;display:flex;align-items:center;gap:12px;direction:ltr;font-size:12px;letter-spacing:3px}
+.splash-crown{display:grid;place-items:center;width:42px;height:42px;border:1px solid #35cfff;border-radius:13px;color:#72dcff;font-size:23px}
+.splash-sub{color:#36d9ff;font-size:11px;letter-spacing:4px;direction:ltr}
+.splash-name{font-size:clamp(30px,8vw,48px);letter-spacing:1px;margin:0;color:#f5f9ff;direction:ltr}
+.splash-name span{color:#70cfff}
+.splash-tagline{color:#d4e7fb;font-size:12px;direction:ltr}
+.splash-line{width:180px;height:1px;background:linear-gradient(90deg,transparent,#72dcff,transparent)}
+.splash-enter{border:1px solid #26cfff;border-radius:999px;padding:14px 24px;color:#b8edff;background:#061a2ddd;letter-spacing:1px;font-size:12px;box-shadow:0 0 25px #168dff2b;direction:ltr}
+body.light .glass{background:linear-gradient(145deg,var(--panel),#e4efff)}
+@media(max-width:380px){.social-grid{gap:5px}.social span:last-child{font-size:9px}.hero{padding-top:18px}}
+</style>
+</head>
+<body>
+<div class="wallpaper"></div>
+
+<div class="splash" id="splash">
+  <div class="splash-top"><div class="splash-crown">✦</div><strong>MEHDI AHMADI</strong></div>
+  <div class="signature">Mahdi Ahmadi</div>
+  <div class="splash-sub">WELCOME TO MY WORLD</div>
+  <h1 class="splash-name">MEHDI <span>AHMADI</span></h1>
+  <p class="splash-tagline">PERSONAL BRAND · MY OWN WORLD</p>
+  <div class="splash-line"></div>
+  <button class="splash-enter" onclick="enterSite()">ENTER MY WORLD　➜</button>
+</div>
+
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="logo">✦</div><span>MEHDI AHMADI</span></div>
+  <div class="top-actions">
+    <button class="glass-btn" onclick="showPage('search')" aria-label="جستجو">⌕</button>
+    <button class="glass-btn" onclick="openDrawer()" aria-label="تنظیمات">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="page active" id="home">
+  <div class="hero">
+    <div class="avatar-wrap">
+      <img class="avatar" src="./profile.jpg?v=3" alt="عکس پروفایل مهدی احمدی"
+      onerror="this.onerror=null;this.src='https://mahdi11ahmdi33-spec.github.io/ahmadi-personal-site/profile.jpg?v=3';">
+    </div>
+    <div class="eyebrow">WELCOME TO MY WORLD</div>
+    <h1>MEHDI AHMADI</h1>
+    <p class="subtitle">طراح • علاقه‌مند به تکنولوژی • سازنده آینده</p>
+    <p class="bio-small">به دنیای شخصی من خوش آمدی؛ اینجا درباره من، علاقه‌ها، پروژه‌ها و شبکه‌های اجتماعی‌ام بیشتر آشنا می‌شوی.</p>
+    <button class="primary" onclick="showPage('about')">بیشتر درباره من　←</button>
+  </div>
+
+  <div class="section-head"><h2>شبکه‌های اجتماعی</h2><span>MY SOCIALS</span></div>
+  <div class="social-grid" id="homeSocials"></div>
+
+  <div class="glass stats">
+    <div class="stat"><strong>04</strong><span>شبکه اجتماعی</span></div>
+    <div class="stat"><strong>01</strong><span>برند شخصی</span></div>
+    <div class="stat"><strong>∞</strong><span>هدف و ایده</span></div>
+  </div>
+
+  <div class="section-head"><h2>دنیای من</h2><span>EXPLORE</span></div>
+  <div class="tile-grid">
+    <button class="tile" onclick="showPage('about')"><b>♙</b><span>درباره من</span></button>
+    <button class="tile" onclick="showPage('projects')"><b>✧</b><span>پروژه‌ها</span></button>
+    <button class="tile" onclick="showPage('social')"><b>◎</b><span>شبکه‌ها</span></button>
+  </div>
+</section>
+
+<section class="page" id="about">
+  <h1 class="page-title">درباره من</h1>
+  <p class="page-intro">سلام! من مهدی احمدی هستم. به تکنولوژی، یادگیری مهارت‌های جدید، طراحی وب و ساختن آینده‌ای بهتر علاقه دارم.</p>
+  <div class="glass">
+    <div class="info-row"><div class="info-ico">👤</div><div><strong>نام</strong><small>مهدی احمدی | Mahdi Ahmadi</small></div></div>
+    <div class="info-row"><div class="info-ico">💻</div><div><strong>علاقه‌مندی‌ها</strong><small>تکنولوژی، طراحی سایت و ایده‌های دیجیتال</small></div></div>
+    <div class="info-row"><div class="info-ico">🎯</div><div><strong>هدف من</strong><small>یادگیری، پیشرفت و ساختن پروژه‌های مفید</small></div></div>
+  </div>
+  <div class="glass"><h2>شعار من</h2><p class="page-intro">هر روز یک قدم به آینده‌ای که می‌خواهم نزدیک‌تر می‌شوم. ✦</p></div>
+</section>
+
+<section class="page" id="projects">
+  <h1 class="page-title">پروژه‌های من</h1>
+  <p class="page-intro">این بخش برای معرفی پروژه‌ها و ایده‌هایی است که در مسیر یادگیری و پیشرفت می‌سازم.</p>
+  <div class="glass project">
+    <div class="project-cover">🌐</div>
+    <h3>وب‌سایت شخصی احمدی</h3>
+    <p>یک صفحه شخصی واکنش‌گرا با طراحی گیمینگ، عکس پروفایل، معرفی و لینک شبکه‌های اجتماعی.</p>
+  </div>
+  <div class="glass project">
+    <div class="project-cover">💡</div>
+    <h3>ایده‌های آینده</h3>
+    <p>ایده‌های تازه برای یادگیری برنامه‌نویسی، طراحی دیجیتال و ساخت پروژه‌های جدید.</p>
+  </div>
+</section>
+
+<section class="page" id="social">
+  <h1 class="page-title">شبکه‌های اجتماعی</h1>
+  <p class="page-intro">روی هر شبکه بزن تا صفحه من در همان شبکه جداگانه باز شود.</p>
+  <div class="glass" id="allSocials"></div>
+</section>
+
+<section class="page" id="contact">
+  <h1 class="page-title">ارتباط با من</h1>
+  <p class="page-intro">برای دیدن صفحه‌های من و دنبال‌کردن فعالیت‌هایم، از لینک‌های شبکه‌های اجتماعی استفاده کن.</p>
+  <div class="glass">
+    <div class="info-row"><div class="info-ico">✉</div><div><strong>شبکه‌های اجتماعی</strong><small>از طریق صفحه‌های رسمی من با من در ارتباط باش.</small></div></div>
+    <button class="primary" style="width:100%;margin-top:14px" onclick="showPage('social')">دیدن شبکه‌ها　←</button>
+  </div>
+  <p class="page-intro" style="text-align:center">ممنون که از سایت من بازدید کردی ✦</p>
+</section>
+
+<section class="page" id="search">
+  <h1 class="page-title">جستجو در سایت</h1>
+  <p class="page-intro">نام بخش موردنظرت را بنویس.</p>
+  <input class="searchbox" id="searchInput" placeholder="مثلاً درباره من یا Instagram" oninput="searchSite(this.value)">
+  <div id="searchResults"><div class="empty">عبارت موردنظرت را بنویس.</div></div>
+</section>
+</main>
+
+<div class="footer">MEHDI AHMADI · PERSONAL SPACE</div>
+</div>
+
+<nav class="bottom-nav" aria-label="منوی اصلی">
+  <button class="nav-item active" data-page="home" onclick="showPage('home')"><span class="nav-icon">⌂</span><span data-fa="خانه" data-en="Home">خانه</span></button>
+  <button class="nav-item" data-page="about" onclick="showPage('about')"><span class="nav-icon">♙</span><span data-fa="درباره من" data-en="About">درباره من</span></button>
+  <button class="nav-item" data-page="projects" onclick="showPage('projects')"><span class="nav-icon">✧</span><span data-fa="پروژه‌ها" data-en="Projects">پروژه‌ها</span></button>
+  <button class="nav-item" data-page="social" onclick="showPage('social')"><span class="nav-icon">◎</span><span data-fa="شبکه‌ها" data-en="Social">شبکه‌ها</span></button>
+  <button class="nav-item" data-page="contact" onclick="showPage('contact')"><span class="nav-icon">↗</span><span data-fa="تماس" data-en="Contact">تماس</span></button>
+</nav>
+
+<div class="backdrop" id="drawerBackdrop" onclick="if(event.target===this)closeDrawer()">
+  <aside class="drawer">
+    <div class="drawer-head"><h2 data-fa="منو و تنظیمات" data-en="Menu & Settings">منو و تنظیمات</h2><button class="close" onclick="closeDrawer()">×</button></div>
+    <div class="setting-row"><div><strong data-fa="زبان سایت" data-en="Website language">زبان سایت</strong><small data-fa="فارسی یا انگلیسی" data-en="Persian or English">فارسی یا انگلیسی</small></div><button class="setting-action" id="languageButton" onclick="toggleLanguage()">فارسی / EN</button></div>
+    <div class="setting-row"><div><strong data-fa="حالت نمایش" data-en="Appearance">حالت نمایش</strong><small data-fa="تغییر حالت تاریک و روشن" data-en="Switch dark and light mode">تغییر حالت تاریک و روشن</small></div><button class="setting-action" id="themeButton" onclick="toggleTheme()">☀️ روشن</button></div>
+    <div class="setting-row"><div><strong data-fa="سازنده سایت" data-en="Website creator">سازنده سایت</strong><small data-fa="طراحی شخصی مهدی احمدی" data-en="Personal design by Mahdi Ahmadi">طراحی شخصی مهدی احمدی</small></div><button class="setting-action" onclick="showCreator()">مشاهده</button></div>
+    <div class="setting-row"><div><strong data-fa="ورود مدیر سایت" data-en="Site owner sign-in">ورود مدیر سایت</strong><small data-fa="فرم ورود مدیر" data-en="Owner sign-in form">فرم ورود مدیر</small></div><button class="setting-action" onclick="openAdmin()">ورود</button></div>
+    <div class="notice">نکته امنیتی: فرم ورود این فایل نمایشی است. GitHub Pages به‌تنهایی احراز هویت امن ایجاد نمی‌کند. برای محافظت واقعی باید سرویس احراز هویت جداگانه وصل شود؛ رمز واقعی را داخل HTML قرار نده.</div>
+  </aside>
+</div>
+
+<div class="backdrop" id="adminBackdrop" onclick="if(event.target===this)closeAdmin()">
+  <section class="modal">
+    <div class="drawer-head"><h2 id="adminTitle">ورود مدیر سایت</h2><button class="close" onclick="closeAdmin()">×</button></div>
+    <p>این فرم فقط نمایشی است و هنوز به سیستم احراز هویت امن وصل نشده است.</p>
+    <label for="adminUser">نام کاربری</label><input class="field" id="adminUser" autocomplete="username" placeholder="نام کاربری">
+    <label for="adminPass">رمز عبور</label><input class="field" id="adminPass" type="password" autocomplete="current-password" placeholder="رمز عبور">
+    <div class="notice" id="adminMessage">برای ورود امن باید سرویس احراز هویت واقعی متصل شود.</div>
+    <button class="primary" style="width:100%" onclick="demoAdminSignIn()">ادامه</button>
+  </section>
+</div>
+
+<div class="backdrop" id="creatorBackdrop" onclick="if(event.target===this)closeCreator()">
+  <section class="modal">
+    <div class="drawer-head"><h2>سازنده سایت</h2><button class="close" onclick="closeCreator()">×</button></div>
+    <p>طراحی و پیاده‌سازی: <strong>Mahdi Ahmadi</strong></p>
+    <p>وب‌سایت شخصی برند احمدی · طراحی واکنش‌گرا با HTML، CSS و JavaScript.</p>
+    <button class="primary" style="width:100%" onclick="closeCreator()">بستن</button>
+  </section>
+</div>
+
+<script>
+const SITE_CONFIG={
+ name:"MEHDI AHMADI",
+ subtitle:"طراح • علاقه‌مند به تکنولوژی • سازنده آینده",
+ socials:[
+  {name:"Instagram",icon:"◎",url:"https://www.instagram.com/mahdi2244.ahmdi32?mdxt=Y3JuczRvbmM2OWY1",color:"#e879c4"},
+  {name:"YouTube",icon:"▶",url:"https://www.youtube.com/@Ahmdi.m",color:"#ff5656"},
+  {name:"TikTok",icon:"♪",url:"https://www.tiktok.com/@mahdi.ahmdi928",color:"#8bdcff"},
+  {name:"Facebook",icon:"f",url:"https://www.facebook.com/share/1FHGrqVyuJ/",color:"#79aaff"}
+ ]
+};
+
+document.querySelector(".hero h1").textContent=SITE_CONFIG.name;
+document.querySelector(".subtitle").textContent=SITE_CONFIG.subtitle;
+
+function renderSocials(){
+ const home=document.getElementById("homeSocials");
+ const all=document.getElementById("allSocials");
+ home.replaceChildren();
+ all.replaceChildren();
+ SITE_CONFIG.socials.forEach(s=>{
+  const a=document.createElement("a");
+  a.className="social";
+  a.href=s.url;
+  a.target="_blank";
+  a.rel="noopener noreferrer";
+  a.innerHTML=`<span class="social-icon" style="color:${s.color}">${s.icon}</span><span>${s.name}</span>`;
+  home.appendChild(a);
+  const row=document.createElement("a");
+  row.className="info-row";
+  row.href=s.url;
+  row.target="_blank";
+  row.rel="noopener noreferrer";
+  row.innerHTML=`<div class="info-ico" style="color:${s.color}">${s.icon}</div><div style="flex:1"><strong>${s.name}</strong><small>باز کردن صفحه ${s.name}</small></div><span>←</span>`;
+  all.appendChild(row);
+ });
+}
+renderSocials();
+
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));
+ document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active",n.dataset.page===id));
+ window.scrollTo({top:0,behavior:"smooth"});
+ if(id==="search")document.getElementById("searchInput").focus();
+}
+function searchSite(value){
+ const q=value.trim().toLowerCase();
+ const items=[
+  ["خانه","home","صفحه اصلی و معرفی مهدی احمدی"],
+  ["درباره من","about","معرفی و علاقه‌های من"],
+  ["پروژه‌ها","projects","پروژه‌های شخصی و ایده‌ها"],
+  ["شبکه‌های اجتماعی","social","Instagram YouTube TikTok Facebook"],
+  ["ارتباط با من","contact","راه‌های ارتباطی"]
+ ];
+ const box=document.getElementById("searchResults");
+ box.replaceChildren();
+ if(!q){box.innerHTML='<div class="empty">عبارت موردنظرت را بنویس.</div>';return;}
+ const matches=items.filter(x=>(x.join(" ")+" "+SITE_CONFIG.socials.map(s=>s.name).join(" ")).toLowerCase().includes(q));
+ if(!matches.length){box.innerHTML='<div class="empty">نتیجه‌ای پیدا نشد.</div>';return;}
+ matches.forEach(x=>{
+  const b=document.createElement("button");
+  b.className="glass";
+  b.style.cssText="width:100%;text-align:right;color:var(--text)";
+  b.innerHTML="<strong>"+x[0]+"</strong><p class='page-intro'>"+x[2]+"</p>";
+  b.onclick=()=>showPage(x[1]);
+  box.appendChild(b);
+ });
+}
+function openDrawer(){document.getElementById("drawerBackdrop").classList.add("open")}
+function closeDrawer(){document.getElementById("drawerBackdrop").classList.remove("open")}
+function toggleTheme(){
+ document.body.classList.toggle("light");
+ const light=document.body.classList.contains("light");
+ document.getElementById("themeButton").textContent=light?"🌙 تاریک":"☀️ روشن";
+ try{localStorage.setItem("ahmadi-theme",light?"light":"dark")}catch(e){}
+}
+function toggleLanguage(){
+ const en=document.documentElement.lang!=="en";
+ document.documentElement.lang=en?"en":"fa";
+ document.documentElement.dir=en?"ltr":"rtl";
+ document.getElementById("languageButton").textContent=en?"English":"فارسی / EN";
+ document.querySelectorAll("[data-fa][data-en]").forEach(el=>el.textContent=en?el.dataset.en:el.dataset.fa);
+ document.getElementById("adminTitle").textContent=en?"Site owner sign-in":"ورود مدیر سایت";
+ document.getElementById("adminUser").placeholder=en?"Username":"نام کاربری";
+ document.getElementById("adminPass").placeholder=en?"Password":"رمز عبور";
+ try{localStorage.setItem("ahmadi-language",en?"en":"fa")}catch(e){}
+}
+function showCreator(){closeDrawer();document.getElementById("creatorBackdrop").classList.add("open")}
+function closeCreator(){document.getElementById("creatorBackdrop").classList.remove("open")}
+function openAdmin(){
+ closeDrawer();
+ document.getElementById("adminBackdrop").classList.add("open");
+ document.getElementById("adminMessage").textContent="این فرم فقط نمایشی است؛ برای ورود امن سرویس احراز هویت واقعی لازم است.";
+}
+function closeAdmin(){document.getElementById("adminBackdrop").classList.remove("open")}
+function demoAdminSignIn(){
+ document.getElementById("adminMessage").textContent="ورود انجام نشد؛ احراز هویت واقعی هنوز به سایت متصل نیست. رمز را در HTML ذخیره نکن.";
+}
+function enterSite(){
+ const splash=document.getElementById("splash");
+ splash.style.transition="opacity .55s ease, visibility .55s ease";
+ splash.style.opacity="0";
+ splash.style.visibility="hidden";
+ splash.style.pointerEvents="none";
+ setTimeout(()=>splash.remove(),600);
+}
+try{
+ if(localStorage.getItem("ahmadi-theme")==="light"){
+  document.body.classList.add("light");
+  document.getElementById("themeButton").textContent="🌙 تاریک";
+ }
+ if(localStorage.getItem("ahmadi-language")==="en")toggleLanguage();
+}catch(e){}
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape"){
+  closeDrawer();closeAdmin();closeCreator();
+ }
+});
+</script>
+</body>
+</html>
